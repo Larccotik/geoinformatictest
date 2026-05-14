@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Интерактивные тесты по геоинформатике</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__title">
+          ИНТЕРАКТИВНЫЕ ТЕСТЫ ДЛЯ КОНТРОЛЯ ЗНАНИЙ ПО ГЕОИНФОРМАТИКЕ
+        </h1>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- HOME -->
+      <section id="homeView" class="view view--active">
+        <div class="card">
+          <div class="card__title">Выбор количества вопросов</div>
+
+          <div class="btnRow">
+            <button class="btn btn--ghost" data-count="10">10</button>
+            <button class="btn btn--ghost" data-count="20">20</button>
+            <button class="btn btn--ghost" data-count="50">50</button>
+            <button class="btn btn--ghost" data-count="all">Все</button>
+          </div>
+
+          <div class="sliderRow">
+            <div class="sliderBlock">
+              <label class="label" for="countRange">Количество вопросов</label>
+              <input id="countRange" class="range" type="range" min="10" max="10" value="10" />
+            </div>
+
+            <div class="inputBlock">
+              <label class="label" for="countInput">Ввод</label>
+              <input id="countInput" class="input" type="number" min="10" value="10" />
+            </div>
+          </div>
+
+          <div class="hint">
+            Вопросы выбираются случайно. Таймера нет.
+          </div>
+
+          <div class="startRow">
+            <button id="startBtn" class="btn btn--primary">Начать тест</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TEST -->
+      <section id="testView" class="view">
+        <div class="card">
+          <div class="testTop">
+            <div class="progress">
+              <div class="progress__text" id="progressText">Вопрос 1 / 1</div>
+              <div class="progress__bar">
+                <div class="progress__fill" id="progressFill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="question">
+            <div id="questionText" class="question__text"></div>
+
+            <div id="questionImageWrap" class="question__imageWrap hidden">
+              <img id="questionImage" class="question__image" alt="Изображение к вопросу" />
+            </div>
+
+            <div id="answersArea" class="answers"></div>
+
+            <div class="actions">
+              <button id="nextBtn" class="btn btn--primary">Далее</button>
+            </div>
+
+            <div id="validationMsg" class="validation hidden"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULT -->
+      <section id="resultView" class="view">
+        <div class="card">
+          <div class="resultTitle">Результат</div>
+
+          <div class="resultBox">
+            <div class="resultLine">
+              <span class="resultLabel">Правильных ответов:</span>
+              <span id="resultCorrect" class="resultValue">0</span>
+            </div>
+            <div class="resultLine">
+              <span class="resultLabel">Всего вопросов:</span>
+              <span id="resultTotal" class="resultValue">0</span>
+            </div>
+            <div class="resultLine">
+              <span class="resultLabel">Процент:</span>
+              <span id="resultPercent" class="resultValue">0%</span>
+            </div>
+
+            <div class="resultGrade" id="resultGrade">—</div>
+          </div>
+
+          <div class="resultActions">
+            <button id="backHomeBtn" class="btn btn--ghost">На главную</button>
+            <button id="saveBtn" class="btn btn--primary">Сохранить результат</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__text">
+          Автор: <span class="footer__accent">ФИО / группа / учебное заведение</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
